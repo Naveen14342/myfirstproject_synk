@@ -11,9 +11,9 @@ jobs:
         uses: actions/checout@v4
 
       
-      - name: "display the message
+      - name: "display the messages"
         run: |
-             echo " my name is naveen"\
+             echo " my name is naveen"
              echo " i am installing the software"
 
 
