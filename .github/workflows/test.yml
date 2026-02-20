@@ -1,0 +1,22 @@
+name: testing runner
+on:
+  push:
+    branches: 
+      - feature/import
+jobs:
+  display:
+    runs-on: self_hosted
+    steps:
+      - name: "checkout the code"
+        uses: actions/checout@v4
+
+      
+      - name: "display the message
+        run: |
+             echo " my name is naveen"\
+             echo " i am installing the software"
+
+
+
+
+
