@@ -5,7 +5,7 @@ on:
       - feature/import
 jobs:
   display:
-    runs-on: self_hosted
+    runs-on: self-hosted
     steps:
       - name: "checkout the code"
         uses: actions/checout@v4
