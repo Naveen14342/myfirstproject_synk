@@ -7,15 +7,23 @@ jobs:
   display:
     runs-on: self-hosted
     steps:
-      - name: "checkout the code"
+      - name: checkout the code
         uses: actions/checkout@v4
 
       
-      - name: "display the messages"
+      - name: snyk test 
+        uses: snyk/actions@master
+        
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: run tests
         run: |
-             echo " my name is naveen"
-             sleep 60
-             echo " i am installing the software"
+             snyk test --all-projects
+             snyk monitor --all-projects
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        
 
 
 
