@@ -15,6 +15,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
+      - name: install maven
+        run: |
+          sudo apt update
+          sudo apt install maven -y
       
       - name: snyk install 
         run: npm install -g snyk
@@ -23,8 +28,9 @@ jobs:
 
       - name: run tests
         run: |
-             snyk test --all-projects
-             snyk monitor --all-projects
+             snyk test --file=vprofile-project/pom.xml
+
+             snyk monitor --file=vprofile-project/pom.xml
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         
