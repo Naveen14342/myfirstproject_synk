@@ -10,12 +10,16 @@ jobs:
       - name: checkout the code
         uses: actions/checkout@v4
 
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
       
-      - name: snyk test 
-        uses: snyk/actions@master
+      - name: snyk install 
+        run: npm install -g snyk
         
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        
 
       - name: run tests
         run: |
